@@ -8,6 +8,9 @@ from django.http import HttpResponse
 def home(request):
     return render(request,'home.html')
 
+def admin1(request):
+     return render(request,'admin1.html')
+
 def login1(request):
    if request.method == 'POST':
      #    data=User.objects.all()
