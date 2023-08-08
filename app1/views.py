@@ -1,38 +1,37 @@
 from django.shortcuts import render,redirect
 from app1.models import log,newuser
 from django.contrib.auth.models import User
-
+from django.contrib.auth import authenticate
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 
 def home(request):
     return render(request,'home.html')
 
-def inser_home_dtls(request):
+def login1(request):
    if request.method == 'POST':
-        data=User.objects.all()
+     #    data=User.objects.all()
         user_name=request.POST.get('un')
         password=request.POST.get('ps')  
-        flag=0
-        for da in data:
-            if user_name==da.user_name and password==da.password:
-               category1=da.user_type
-               flag=1
-               request.session['user_name']=user_name
-               
-               if category1=="dr":
-                    return redirect('/new_user_dr')   
-               elif category1=="ns":
+        data=authenticate(username=user_name,password=password)
+        request.session['user_name']=user_name
+        if data is not None and data.is_superuser==1:
+             return redirect('/admin1/')
+        elif data is not None and data.is_superuser==0:
+             user=newuser.objects.get(email=data.username)
+             if user.job=="dr":
+               return redirect('/new_user_dr/') 
+             elif  user.job=="ns":
                     return redirect('/new_user_nr')
-               elif category1=="mngr":
+             elif user.job=="mngr":
                     return redirect('/new_user_mn')
-               elif category1=="fronto":
+             elif user.job=="fronto":
                     return redirect('/new_user_off')
-               elif category1=="sec":
+             elif user.job=="sec":
                     return redirect('/new_user_sec')
-               else:
+             else:
                     return HttpResponse("invalid acct type")
-        if flag==0:
+        else:
             return HttpResponse("user does not exist") 
 def new_user1(request):
      return render(request,'doctor.html')
@@ -52,7 +51,6 @@ def new_user_page(request):
 def inser_new_user_dtls(request):
     y=User()
     y.username=request.POST.get('e')
-    U
     password="qwerty"
     y.set_password(password)
     y.user_type=request.POST.get('jobrole')
