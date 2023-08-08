@@ -31,5 +31,6 @@ urlpatterns = [
 
     path('new_user/',views.new_user_page),
     path('inser_new_user/',views.inser_new_user_dtls),
+    
 
 ]
