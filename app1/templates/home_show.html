@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>login table</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>user name</th>
+                <th>password</th>
+                <th>type</th>
+            </tr>
+            {% for a1 in a %}
+            <tr>
+                <td>{{ a1.user_name }}</td>
+                <td>{{ a1.password }}</td>
+                <td>{{ a1.user_type }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </body>
+        </html>

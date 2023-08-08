@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>new user table</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>name</th>
+                <th>job role</th>
+                <th>joining date</th>
+                <th>email</th>
+                <th>phone no</th>
+                <th>address</th>
+            </tr>
+            {% for a1 in a %}
+            <tr>
+                <td>{{ a1.name }}</td>
+                <td>{{ a1.job }}</td>
+                <td>{{ a1.join_date }}</td>
+                <td>{{ a1.email }}</td>
+                <td>{{ a1.nobr }}</td>
+                <td>{{ a1.address }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </body>
+        </html>

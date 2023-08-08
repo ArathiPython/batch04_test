@@ -1,0 +1,36 @@
+<html>
+    <hread>
+    <title>new user page</title>
+</hread>
+<body>
+    <form action="/inser_new_user/" method="POST">
+            {% csrf_token %}
+            <h1> New User Details</h1>
+            <label>Name</label>
+            <input type="text" name="n" size="20">
+            <br><br>
+            <label>Job Role</label>
+            <select id="job" name="jobrole">
+                <option value="dr">doctor</option>
+                <option value="ns">nurse</option>
+                <option value="mngr">manager</option>
+                <option value="fronto">front office</option>
+                <option value="sec">security</option>
+              </select>
+              <br><br>
+            <label>Joining date</label>
+            <input type="text" name="jn" size="20">
+            <br><br><label>Email</label>
+            <input type="email" name="e" size="20">
+            <br><br>
+            <br><br><label>Phone no.</label>
+            <input type="number" name="pn" size="20">
+            <br><br>
+            <br><br><label>Address</label>
+            <textarea name="add">address</textarea> 
+            <br><br><br>
+            <input type="submit" value="signup">
+            <input type="reset" value="clear">
+    </form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+    <hread>
+    <title>home page</title>
+</hread>
+<body>
+    <form action="" method="Post" style="text-align: center">
+            {% csrf_token %}
+            <h1> log in</h1>
+            <label>username</label>
+            <input type="text" name="username" size="20">
+            <br><br>
+            <label>password</label>
+            <input type="password" name="password" size="20">
+            <br><br><br>
+            <input type="submit" value="login">
+            <input type="reset" value="clear">
+            <br><br><br>
+            <a href="/new_user/">new user</a>    
+    </form>
+</body>
+</html>
