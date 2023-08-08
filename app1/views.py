@@ -13,7 +13,6 @@ def admin1(request):
 
 def login1(request):
    if request.method == 'POST':
-     #    data=User.objects.all()
         user_name=request.POST.get('un')
         password=request.POST.get('ps')  
         data=authenticate(username=user_name,password=password)
