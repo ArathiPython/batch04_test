@@ -1,21 +1,26 @@
 <html>
-    <hread>
+  <hread>
     <title>home page</title>
-</hread>
-<body>
-    <form action="/login1/" method="Post" style="text-align: center;border:2px solid green;">
-            {% csrf_token %}
-            <h1> log in</h1>
-            <label>username</label>
-            <input type="text" name="un" size="20">
-            <br><br>
-            <label>password</label>
-            <input type="password" name="ps" size="20">
-            <br><br><br>
-            <input type="submit" value="login">
-            <input type="reset" value="clear">
-            <br><br><br>
-            <a href="/new_user/">new user</a>    
+  </hread>
+  <body>
+    <h4>Heading edited for Git</h4>
+    <form
+      action="/login1/"
+      method="Post"
+      style="text-align: center; border: 2px solid green"
+    >
+      {% csrf_token %}
+      <h1>log in</h1>
+      <label>username</label>
+      <input type="text" name="un" size="20" />
+      <br /><br />
+      <label>password</label>
+      <input type="password" name="ps" size="20" />
+      <br /><br /><br />
+      <input type="submit" value="login" />
+      <input type="reset" value="clear" />
+      <br /><br /><br />
+      <a href="/new_user/">new user</a>
     </form>
-</body>
+  </body>
 </html>
